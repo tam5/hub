@@ -2,7 +2,7 @@
   <div>
     <h2 class="title">Screens <img src="../assets/desktop.svg" /></h2>
     <div class="controls">
-      <ScreensOption left="work" right="work" />
+      <ScreensOption left="work" right="work" :active="true" />
       <ScreensOption left="personal" right="personal" />
     </div>
     <div class="controls">
