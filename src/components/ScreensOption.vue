@@ -75,7 +75,6 @@ $border-width: 1px;
   display: flex;
   -webkit-box-align: center;
   position: relative;
-  box-sizing: border-box;
   background-clip: padding-box;
   border: solid $border-width transparent;
   border-radius: $border-radius;
