@@ -1,8 +1,10 @@
 export default {
   work: {
-    label: "W"
+    label: "W",
+    available: true
   },
   personal: {
-    label: "P"
+    label: "P",
+    available: true
   }
 };

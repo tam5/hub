@@ -1,24 +1,30 @@
 <template>
-  <div class="root" :class="{ active }">
+  <div class="root" :class="{ active, disabled }" v-on:click="handleClick">
     <div class="left">
-      {{ Machines[left].label }}
+      {{ left.label }}
     </div>
     <div class="divider"></div>
-    <div class="right">{{ Machines[right].label }}</div>
+    <div class="right">{{ right.label }}</div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Machines from "../Machines";
 
 export default Vue.extend({
   name: "ScreensOption",
-  props: ["left", "right", "active"],
-  data() {
-    return {
-      Machines
-    };
+  props: ["left", "right", "active", "click"],
+  methods: {
+    handleClick() {
+      if (!this.disabled) {
+        this.click();
+      }
+    }
+  },
+  computed: {
+    disabled() {
+      return !(this.left.available && this.right.available);
+    }
   }
 });
 </script>
@@ -83,6 +89,16 @@ $border-width: 1px;
     margin: -$border-width;
     border-radius: inherit;
     @include gradient1;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+
+  .left,
+  .right {
+    background: darken($bg-app, 1%);
+    color: darken($text-color-primary, 30%);
   }
 }
 </style>

@@ -8,7 +8,7 @@
         :left="option[0]"
         :right="option[1]"
         :active="active === index"
-        @click.native="switchTo(index)"
+        :click="() => switchTo(index)"
       />
     </div>
   </div>
@@ -17,6 +17,7 @@
 <script lang="ts">
 import Vue from "vue";
 import ScreensOption from "./ScreensOption.vue";
+import Machines from "../Machines";
 
 export default Vue.extend({
   name: "ScreenControls",
@@ -26,10 +27,10 @@ export default Vue.extend({
   data() {
     return {
       options: [
-        ["work", "work"],
-        ["personal", "personal"],
-        ["work", "personal"],
-        ["personal", "work"]
+        [Machines.work, Machines.work],
+        [Machines.personal, Machines.personal],
+        [Machines.work, Machines.personal],
+        [Machines.personal, Machines.work]
       ],
       active: 0
     };
@@ -44,7 +45,11 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import "../theme.scss";
+
+$margin: 32px;
+
 .title {
+  margin-left: $margin;
   font-weight: normal;
   display: flex;
   align-items: center;
@@ -56,12 +61,9 @@ export default Vue.extend({
 }
 .controls {
   display: flex;
-  margin-bottom: 64px;
+  flex-wrap: wrap;
 }
-.controls > div:first-child {
-  margin-right: 32px;
-}
-.controls > div:last-child {
-  margin-left: 32px;
+.controls > div {
+  margin: 0 $margin (2 * $margin) $margin;
 }
 </style>
