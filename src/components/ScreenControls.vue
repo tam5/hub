@@ -31,7 +31,7 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   img {
-    height: 28px;
+    height: 26px;
     margin-bottom: -3px;
     margin-left: 8px;
   }

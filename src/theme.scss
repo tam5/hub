@@ -5,3 +5,17 @@ $border-radius: 20px;
 
 $text-color-primary: #807D7D;
 $text-color-secondary: #FFF;
+
+@mixin gradient1 {
+    $color1: #ff415b;
+    $color2: #5447ff;
+
+    background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from($color1),
+        to($color2)
+    );
+    background: linear-gradient(to right, $color1, $color2);
+}

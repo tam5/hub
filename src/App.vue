@@ -29,10 +29,13 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
-  background: $bg-app;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: $bg-app;
 }
 
 #app {

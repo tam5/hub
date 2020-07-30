@@ -5,9 +5,6 @@
     </div>
     <div class="divider"></div>
     <div class="right">{{ Machines[right].label }}</div>
-    <div class="module-border-wrap"><div class="module">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero pariatur corporis quaerat voluptatum eos tempora temporibus nisi voluptates sed, exercitationem sequi dolore culpa incidunt accusamus, quasi unde reprehenderit ea molestias.
-</div></div>
   </div>
 </template>
 
@@ -39,47 +36,13 @@ export default Vue.extend({
 
 $width: 384px;
 $height: $width / 2;
-
-.module-border-wrap {
-  max-width: 250px;
-  padding: 1rem;
-  position: relative;
-  background: linear-gradient(to right, red, purple);
-  padding: 3px;
-}
-
-.module {
-  background: #222;
-  color: white;
-  padding: 2rem;
-}
+$border-width: 1px;
 
 .root {
   width: $width;
   height: $height;
   display: flex;
   cursor: pointer;
-}
-
-.active {
-    border: 1px solid orange;
-    background-clip: padding-box;
-    position: relative;
-    box-sizing: border-box;
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        margin: -1px;
-        border-radius: inherit;
-        background: linear-gradient(to right, red, orange);
-
-    }
 }
 
 .left,
@@ -103,6 +66,31 @@ $height: $width / 2;
 }
 
 .divider {
-  width: 1px;
+  width: 2px;
+  background: $bg-app;
+}
+
+.active {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  position: relative;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border: solid $border-width transparent;
+  border-radius: $border-radius;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border-width;
+    border-radius: inherit;
+    @include gradient1;
+  }
 }
 </style>
