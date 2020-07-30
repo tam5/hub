@@ -10,15 +10,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-
-const Machines = {
-  work: {
-    label: "W"
-  },
-  personal: {
-    label: "P"
-  }
-};
+import Machines from "../Machines";
 
 export default Vue.extend({
   name: "ScreensOption",
@@ -43,6 +35,7 @@ $border-width: 1px;
   height: $height;
   display: flex;
   cursor: pointer;
+  position: relative;
 }
 
 .left,

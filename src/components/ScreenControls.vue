@@ -2,12 +2,14 @@
   <div>
     <h2 class="title">Screens <img src="../assets/desktop.svg" /></h2>
     <div class="controls">
-      <ScreensOption left="work" right="work" :active="true" />
-      <ScreensOption left="personal" right="personal" />
-    </div>
-    <div class="controls">
-      <ScreensOption left="work" right="personal" />
-      <ScreensOption left="personal" right="work" />
+      <ScreensOption
+        v-for="(option, index) in options"
+        :key="index"
+        :left="option[0]"
+        :right="option[1]"
+        :active="active === index"
+        @click.native="switchTo(index)"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +22,22 @@ export default Vue.extend({
   name: "ScreenControls",
   components: {
     ScreensOption
+  },
+  data() {
+    return {
+      options: [
+        ["work", "work"],
+        ["personal", "personal"],
+        ["work", "personal"],
+        ["personal", "work"]
+      ],
+      active: 0
+    };
+  },
+  methods: {
+    switchTo(index: number) {
+      this.active = index;
+    }
   }
 });
 </script>
